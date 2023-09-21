@@ -1,0 +1,220 @@
+:root {
+  --clr-primary-hsl-500: 178, 100%, 50%;
+  --clr-primary-hsl-700: 215, 51%, 70%;
+
+  --clr-secondary-hsl-100: 0, 0%, 100%;
+  --clr-secondary-hsl-600: 215, 32%, 27%;
+  --clr-secondary-hsl-700: 215, 52%, 16%;
+  --clr-secondary-hsl-800: 217, 54%, 11%;
+
+  --clr-primary-500: hsl(var(--clr-primary-hsl-500));
+  --clr-primary-700: hsl(var(--clr-primary-hsl-700));
+
+  --clr-secondary-100: hsl(var(--clr-secondary-hsl-100));
+  --clr-secondary-600: hsl(var(--clr-secondary-hsl-600));
+  --clr-secondary-700: hsl(var(--clr-secondary-hsl-700));
+  --clr-secondary-800: hsl(var(--clr-secondary-hsl-800));
+
+  --ff-primary: "Outfit", sans-serif;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+
+  --fs-100: 1.125rem;
+  --fs-200: 1.5rem;
+
+  --size-100: 0.5rem;
+  --size-200: 1rem;
+  --size-300: 1.5rem;
+
+  /* Tokens */
+
+  --clr-bg-body: var(--clr-secondary-800);
+  --clr-bg-card: var(--clr-secondary-700);
+  --clr-body: var(--clr-secondary-100);
+  --clr-heading-1: var(--clr-secondary-100);
+  --clr-heading-2: var(--clr-primary-500);
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
+  --fw-body: var(--fw-light);
+  --fw-heading-1: var(--fw-semi-bold);
+  --fw-heading-2: var(--fw-regular);
+
+  --fs-body: var(--fs-100);
+  --fs-heading-1: var(--fs-200);
+  --fs-heading-2: var(--fs-100);
+}
+
+/* Reset Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font: inherit;
+}
+
+img,
+svg,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li a {
+  text-decoration: none;
+}
+
+/* General Styles */
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body);
+  color: var(--clr-body);
+  background-color: var(--clr-bg-body);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  margin-inline: var(--size-200);
+}
+
+.card {
+  background: var(--clr-bg-card);
+  border-radius: var(--size-200);
+  box-shadow: 0.5rem 1rem 5rem hsl(var(--clr-secondary-hsl-700), 0.5);
+  padding: var(--size-200);
+  max-width: 20rem;
+}
+
+.image-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.image-wrapper img {
+  border-radius: var(--size-200);
+}
+
+.img-wrapper-hover {
+  background: hsl(var(--clr-primary-hsl-500), 38%);
+  border-radius: var(--size-200);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.img-wrapper-hover img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img-wrapper-hover:hover {
+  opacity: 1;
+}
+
+.heading-1 {
+  font-family: var(--ff-heading-1);
+  font-weight: var(--fw-heading-1);
+  font-size: var(--fs-heading-1);
+  color: var(--clr-heading-1);
+  cursor: pointer;
+}
+
+.heading-2 {
+  font-family: var(--ff-heading-2);
+  font-weight: var(--fw-heading-2);
+  font-size: var(--fs-heading-2);
+  color: var(--clr-heading-2);
+}
+
+[data-border] {
+  border-bottom: 1px solid var(--clr-secondary-600);
+}
+
+.hover:hover {
+  color: var(--clr-heading-2);
+}
+
+.creator-details .creator-profile {
+  max-width: 2rem;
+  border-radius: 50%;
+}
+
+.creator-profile img {
+  border: 1px solid var(--clr-secondary-100);
+  border-radius: 50%;
+}
+
+.creator-names {
+  cursor: pointer;
+}
+
+/* Utilities */
+
+.flex-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--size-100);
+}
+
+.flex-group[data-reduced-gap] {
+  justify-content: flex-start;
+}
+
+.spacer {
+  margin-top: var(--size-200);
+}
+
+.padding-block {
+  padding-block: var(--size-200);
+}
+
+p[data-max-width] {
+  max-width: 30ch;
+}
+
+[data-low-opacity] {
+  opacity: 0.7;
+}
+
+.coderSeth {
+  font-size: var(--size-200);
+  text-align: center;
+  padding-block: var(--size-200);
+}
+
+.coderSeth a {
+  --cS-color: 228, 45%, 44%;
+  color: hsl(var(--cS-color));
+}
+
+/* Small screen widths */
+
+@media (max-width: 400px) {
+  .container {
+    margin-inline: var(--size-100);
+  }
+}
